@@ -88,9 +88,11 @@ Subsystem sftp internal-sftp
 # and ChallengeResponseAuthentication to 'no'.
 UsePAM yes
 
-Match User sftpusers
+AllowGroups main.sftp admins root
+
+Match Group main.sftp
         ForceCommand internal-sftp
-        ChrootDirectory /home/%u
+        ChrootDirectory /home
         AllowTcpForwarding no
         GatewayPorts no
         X11Forwarding no
