@@ -9,8 +9,8 @@ from yunohost.domain import _get_maindomain
 from moulinette.core import MoulinetteError
 
 # Instantiate LDAP Authenticator
-AUTH_IDENTIFIER = ('ldap', 'ldap-anonymous')
-AUTH_PARAMETERS = {'uri': 'ldap://localhost:389', 'base_dn': 'dc=yunohost,dc=org'}
+AUTH_IDENTIFIER = ('ldap', 'as-root')
+AUTH_PARAMETERS = {'uri': 'ldapi://%2Fvar%2Frun%2Fslapd%2Fldapi', 'base_dn': 'dc=yunohost,dc=org'}
 
 auth = init_authenticator(AUTH_IDENTIFIER, AUTH_PARAMETERS)
 
